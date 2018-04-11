@@ -1,0 +1,40 @@
+(module
+  (table 0 anyfunc)
+  (memory $0 1)
+  (export "memory" (memory $0))
+  (export "addition" (func $addition))
+  (export "subtraction" (func $subtraction))
+  (export "multiplication" (func $multiplication))
+  (export "division" (func $division))
+  (func $addition (; 0 ;) (param $0 f64) (param $1 f64) (result f64)
+    (f64.add
+      (get_local $0)
+      (get_local $1)
+    )
+  )
+  (func $subtraction (; 1 ;) (param $0 f64) (param $1 f64) (result f64)
+    (f64.sub
+      (get_local $0)
+      (get_local $1)
+    )
+  )
+  (func $multiplication (; 2 ;) (param $0 f64) (param $1 f64) (result f64)
+    (f64.mul
+      (get_local $0)
+      (get_local $1)
+    )
+  )
+  (func $division (; 3 ;) (param $0 f64) (param $1 f64) (result f64)
+    (select
+      (f64.div
+        (get_local $0)
+        (get_local $1)
+      )
+      (f64.const 34404)
+      (f64.ne
+        (get_local $1)
+        (f64.const 0)
+      )
+    )
+  )
+)

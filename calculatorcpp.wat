@@ -1,0 +1,40 @@
+(module
+  (table 0 anyfunc)
+  (memory $0 1)
+  (export "memory" (memory $0))
+  (export "_Z8additiondd" (func $_Z8additiondd))
+  (export "_Z11subtractiondd" (func $_Z11subtractiondd))
+  (export "_Z14multiplicationdd" (func $_Z14multiplicationdd))
+  (export "_Z8divisiondd" (func $_Z8divisiondd))
+  (func $_Z8additiondd (; 0 ;) (param $0 f64) (param $1 f64) (result f64)
+    (f64.add
+      (get_local $0)
+      (get_local $1)
+    )
+  )
+  (func $_Z11subtractiondd (; 1 ;) (param $0 f64) (param $1 f64) (result f64)
+    (f64.sub
+      (get_local $0)
+      (get_local $1)
+    )
+  )
+  (func $_Z14multiplicationdd (; 2 ;) (param $0 f64) (param $1 f64) (result f64)
+    (f64.mul
+      (get_local $0)
+      (get_local $1)
+    )
+  )
+  (func $_Z8divisiondd (; 3 ;) (param $0 f64) (param $1 f64) (result f64)
+    (select
+      (f64.div
+        (get_local $0)
+        (get_local $1)
+      )
+      (f64.const 34404)
+      (f64.ne
+        (get_local $1)
+        (f64.const 0)
+      )
+    )
+  )
+)
