@@ -1,9 +1,9 @@
 // #include <iostream>
 // #include <cmath>
-
+//
 // double number, number1, number2;
 // float a, b, c, x1, x2;
-
+// 
 double addition(double number1, double number2) {
   return number1 + number2;
 }
