@@ -1,13 +1,37 @@
 <html>
 <head>
 <title>Web Assembly</title>
+<link rel="stylesheet" href="index.css"/>
 <script src="index.js"></script>
 </head>
 <body>
-  <h1>Math Suite</h1>
-  <input id="number1" type="text" placeholder="Enter first number"/>
-  <input id="number2" type="text" placeholder="Enter second number"/>
-  <button id="addition" type="button">Addition</button>
-  <span id="result"></span>
+  <main>
+    <section class="display">
+      <input id="number1" type="text" placeholder="Enter first number"/>
+      <span class="operation">nil</span>
+      <input id="number2" type="text" placeholder="Enter second number"/>
+      <span id="result"></span>
+    </section>
+    <section class="operations">
+      <button id="addition" type="button">+</button>
+      <button id="subtraction" type="button">-</button>
+      <button id="mutiplication" type="button">x</button>
+      <button id="division" type="button">/</button>
+    </section>
+    <section class="digits">
+      <button id="zero" type="button">0</button>
+      <button id="one" type="button">1</button>
+      <button id="two" type="button">2</button>
+      <button id="three" type="button">3</button>
+      <button id="four" type="button">4</button>
+      <button id="five" type="button">5</button>
+      <button id="six" type="button">6</button>
+      <button id="seven" type="button">7</button>
+      <button id="eight" type="button">8</button>
+      <button id="nine" type="button">9</button>
+      <button id="decimal" type="button">.</button>
+      <button id="equal" type="button">=</button>
+    </section>
+  </main>
 </body>
 </html>
