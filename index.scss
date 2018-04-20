@@ -1,0 +1,141 @@
+/*
+  Title: WASM Calculator
+  Author: Marco Maza
+  Version: 1.0.0
+  Syntax: SCSS
+*/
+
+// Palette
+
+$black: #000000;
+$white: #FFFFFF;
+
+$green: #44E60C;
+$blue: #00AC83;
+$red: #FF1215;
+$purple: #873CB8;
+$yellow: #F3D301;
+
+$colors: '$black', '$white,' '$green', '$blue', '$red', '$purple', '$yellow';
+
+$step: 0;
+$length: length($colors);
+
+$black-shades: null;
+$white-shades: null;
+$green-shades: null;
+$blue-shades: null;
+$red-shades: null;
+$purple-shades: null;
+$yellow-shades: null;
+
+$shades: '$black-shades', '$white-shades', '$green-shades', '$blue-shades', '$red-shades', '$purple-shades', '$yellow-shades';
+
+$black-tints: null;
+$white-tints: null;
+$green-tints: null;
+$blue-tints: null;
+$red-tints: null;
+$purple-tints: null;
+$yellow-tints: null;
+
+$tints: '$black-tints', '$white-tints', '$green-tints', '$blue-tints', '$red-tints', '$purple-tints', '$yellow-tints';
+
+$result-shades: null;
+$result-tints: null;
+
+
+@function createShades($color) {
+  @for $i from 1 through 5 {
+    $step: $step + 5;
+    $result-shades: append($result-shades, darken($color, $step), 'comma');
+  }
+}
+@function createTints($color) {
+  @for $i from 1 through 5 {
+    $step: $step + 5;
+    $result-tints: append($result-tints, lighten($color, $step), 'comma');
+  }
+  @return $result-tints;
+}
+@for $i from 1 through $length {
+  $current-color: nth($colors, $i);
+  $current-shade: nth($shades, $i);
+  $current-tints: nth($tints, $i);
+
+  @for $i from 1 through $length {
+    $current-shade: createShades($current-color);
+    .shades {
+      color: $current-tints;
+    }
+  }
+  @for $i from 1 through $length {
+    $current-tints: createTints($current-color);
+    .tints {
+      color: $current-tints;
+    }
+  }
+}
+
+
+
+// Shades and Tints
+
+// Fonts
+
+// Margins and Paddings
+
+// Reset
+
+body {
+  margin: 0;
+}
+
+// Custom
+
+main {
+  display: grid;
+  grid-template-columns: 25% 75%;
+  grid-template-rows: 25% 75%;
+  .display {
+      grid-column: 1 / 3;
+      display: grid;
+      grid-template-columns: 25% 10% 25% 10% 30%;
+      grid-template-rows: 100%;
+      text-align: center;
+      color: $black;
+    .operands {
+      border: 0;
+      background: $yellow;
+    }
+    .operation {
+    }
+    .result {
+    }
+  }
+  .operations {
+    button {
+      width: 100%;
+    }
+  }
+  .digits {
+
+  }
+}
+
+// Media Queries - Bootstrap 4 | Mobile First
+
+// Extra small devices (portrait phones, less than 576px)
+// No media query since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}

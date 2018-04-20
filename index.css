@@ -1,8 +1,31 @@
+/*
+  Title: WASM Calculator
+  Author: Marco Maza
+  Version: 1.0.0
+  Syntax: SCSS
+*/
+body {
+  margin: 0; }
+
 main {
-   display: grid;
-   grid-template-columns: 25% 75%;
-   grid-template-rows: 25% 75%;
-}
-.display {
-  grid-column: 1 / 3;
-}
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 25% 75%;
+  grid-template-columns: 25% 75%;
+  -ms-grid-rows: 25% 75%;
+  grid-template-rows: 25% 75%; }
+  main .display {
+    grid-column: 1 / 3;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 25% 10% 25% 10% 30%;
+    grid-template-columns: 25% 10% 25% 10% 30%;
+    -ms-grid-rows: 100%;
+    grid-template-rows: 100%;
+    text-align: center;
+    color: #000000; }
+    main .display .operands {
+      border: 0;
+      background: #F3D301; }
+  main .operations button {
+    width: 100%; }
