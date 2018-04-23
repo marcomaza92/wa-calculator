@@ -94,7 +94,7 @@ This folder should be inside the _root directory_ (`www` in this case) of your w
 
 ### 4. Add the dynamic library
 
-You are done with the _low-level_ part. Now you have to do some HTML/CSS/JS to use this magic file.
+You are done with the _low-level_ part. Now you have to do some HTML/SCSS/JS to use this magic file.
 
 To add the library and show results on the browser, create the following files:
 
@@ -441,187 +441,14 @@ function loadWebAssembly(fileName) {
     });
 };
 // Loads the C module and uses it.
-// loadWebAssembly('calculatorc.wasm')
-//   .then(instance => {
-//     exports = instance.exports; // The "exports" of the instance
-//
-//     const addition = exports.addition; // Exports the function. For C modules.
-//     const subtraction = exports.subtraction;
-//     const multiplication = exports.multiplication;
-//     const division = exports.division;
-//
-//     // console.log('Finished compiling! Ready when you are...'); // It's alive!
-//     // console.log(squarer); // It's really native code!
-//
-//     const additionTrigger = document.getElementById('addition');
-//     const subtractionTrigger = document.getElementById('subtraction');
-//     const multiplicationTrigger = document.getElementById('multiplication');
-//     const divisionTrigger = document.getElementById('division');
-//
-//     const equalTrigger = document.getElementById('equal');
-//
-//     let number1 = document.getElementById('number1');
-//     let number2 = document.getElementById('number2');
-//
-//     let operation = document.getElementById('operation');
-//
-//     let result = document.getElementById('result');
-//
-//     function execution(event) {
-//       let keyPressed = event.keyCode;
-//       let elementClicked = event.path[0].innerText;
-//       if ((keyPressed == 13 || elementClicked == '=') && operation.innerText != 'nil') {
-//         if (operation.innerText == '+') {
-//           result.innerText = addition(number1.innerText, number2.innerText);
-//         }
-//         if (operation.innerText == '-') {
-//           result.innerText = subtraction(number1.innerText, number2.innerText);
-//         }
-//         if (operation.innerText == 'x') {
-//           result.innerText = multiplication(number1.innerText, number2.innerText);
-//         }
-//         if (operation.innerText == '/') {
-//           result.innerText = division(number1.innerText, number2.innerText);
-//         }
-//       }
-//     }
-//     function operations(event) {
-//       let keyPressed = event.keyCode;
-//       let elementClicked = event.path[0].innerText;
-//       // Operations
-//       if (keyPressed == 107 || elementClicked == '+') {
-//         operation.innerText = '+';
-//       }
-//       if (keyPressed == 109 || elementClicked == '-') {
-//         operation.innerText = '-';
-//       }
-//       if (keyPressed == 106 || elementClicked == 'x') {
-//         operation.innerText = 'x';
-//       }
-//       if (keyPressed == 111 || elementClicked == '/') {
-//         operation.innerText = '/';
-//       }
-//     }
-//     function firstOperand(event) {
-//       let keyPressed = event.keyCode;
-//       let elementClicked = event.path[0].innerText;
-//       // First Operand
-//       if (operation.innerText == 'nil') {
-//         if (keyPressed == 48 || keyPressed == 96 || elementClicked == '0') {
-//           number1.innerText = `${number1.innerText}0`;
-//         }
-//         if (keyPressed == 49 || keyPressed == 97 || elementClicked == '1') {
-//           number1.innerText = `${number1.innerText}1`;
-//         }
-//         if (keyPressed == 50 || keyPressed == 98 || elementClicked == '2') {
-//           number1.innerText = `${number1.innerText}2`;
-//         }
-//         if (keyPressed == 51 || keyPressed == 99 || elementClicked == '3') {
-//           number1.innerText = `${number1.innerText}3`;
-//         }
-//         if (keyPressed == 52 || keyPressed == 100 || elementClicked == '4') {
-//           number1.innerText = `${number1.innerText}4`;
-//         }
-//         if (keyPressed == 53 || keyPressed == 101 || elementClicked == '5') {
-//           number1.innerText = `${number1.innerText}5`;
-//         }
-//         if (keyPressed == 54 || keyPressed == 102 || elementClicked == '6') {
-//           number1.innerText = `${number1.innerText}6`;
-//         }
-//         if (keyPressed == 55 || keyPressed == 103 || elementClicked == '7') {
-//           number1.innerText = `${number1.innerText}7`;
-//         }
-//         if (keyPressed == 56 || keyPressed == 104 || elementClicked == '8') {
-//           number1.innerText = `${number1.innerText}8`;
-//         }
-//         if (keyPressed == 57 || keyPressed == 105 || elementClicked == '9') {
-//           number1.innerText = `${number1.innerText}9`;
-//         }
-//         // Misc
-//         if (keyPressed == 110 || keyPressed == 190 || elementClicked == '.') {
-//           number1.innerText = `${number1.innerText}.`;
-//         }
-//       }
-//     }
-//     function secondOperand(event) {
-//       let keyPressed = event.keyCode;
-//       let elementClicked = event.path[0].innerText;
-//       // Second Operand
-//       if (operation.innerText != 'nil') {
-//         if (keyPressed == 48 || keyPressed == 96 || elementClicked == '0') {
-//           number2.innerText = `${number2.innerText}0`;
-//         }
-//         if (keyPressed == 49 || keyPressed == 97 || elementClicked == '1') {
-//           number2.innerText = `${number2.innerText}1`;
-//         }
-//         if (keyPressed == 50 || keyPressed == 98 || elementClicked == '2') {
-//           number2.innerText = `${number2.innerText}2`;
-//         }
-//         if (keyPressed == 51 || keyPressed == 99 || elementClicked == '3') {
-//           number2.innerText = `${number2.innerText}3`;
-//         }
-//         if (keyPressed == 52 || keyPressed == 100 || elementClicked == '4') {
-//           number2.innerText = `${number2.innerText}4`;
-//         }
-//         if (keyPressed == 53 || keyPressed == 101 || elementClicked == '5') {
-//           number2.innerText = `${number2.innerText}5`;
-//         }
-//         if (keyPressed == 54 || keyPressed == 102 || elementClicked == '6') {
-//           number2.innerText = `${number2.innerText}6`;
-//         }
-//         if (keyPressed == 55 || keyPressed == 103 || elementClicked == '7') {
-//           number2.innerText = `${number2.innerText}7`;
-//         }
-//         if (keyPressed == 56 || keyPressed == 104 || elementClicked == '8') {
-//           number2.innerText = `${number2.innerText}8`;
-//         }
-//         if (keyPressed == 57 || keyPressed == 105 || elementClicked == '9') {
-//           number2.innerText = `${number2.innerText}9`;
-//         }
-//         // Misc
-//         if (keyPressed == 110 || keyPressed == 190 || elementClicked == '.') {
-//           number2.innerText = `${number2.innerText}.`;
-//         }
-//       }
-//     }
-//     function erase() {
-//       let keyPressed = event.keyCode;
-//       if (keyPressed == 8 || keyPressed == 46) {
-//         if (operation.innerText == 'nil') {
-//           number1.innerText = '';
-//         } else if (operation.innerText != 'nil' && result.innerText != '') {
-//           result.innerText = '';
-//           number2.innerText = '';
-//         } else if (operation.innerText != 'nil') {
-//           number2.innerText = '';
-//           operation.innerText = 'nil';
-//         }
-//       }
-//     }
-//
-//     document.addEventListener('keyup', firstOperand, false);
-//     document.addEventListener('click', firstOperand, false);
-//
-//     document.addEventListener('keyup', operations, false);
-//     document.addEventListener('click', operations, false);
-//
-//     document.addEventListener('keyup', secondOperand, false);
-//     document.addEventListener('click', secondOperand, false);
-//
-//     document.addEventListener('keyup', erase, false);
-//
-//     document.addEventListener('keyup', execution, false);
-//     document.addEventListener('click', execution, false);
-// });
-// Loads the C++ module and uses it.
-loadWebAssembly('calculatorcpp.wasm')
+loadWebAssembly('calculatorc.wasm')
   .then(instance => {
     exports = instance.exports; // The "exports" of the instance
 
-    const addition = exports._Z8additiondd; // Exports the function. For C modules.
-    const subtraction = exports._Z11subtractiondd;
-    const multiplication = exports._Z14multiplicationdd;
-    const division = exports._Z8divisiondd;
+    const addition = exports.addition; // Exports the function. For C modules.
+    const subtraction = exports.subtraction;
+    const multiplication = exports.multiplication;
+    const division = exports.division;
 
     // console.log('Finished compiling! Ready when you are...'); // It's alive!
     // console.log(squarer); // It's really native code!
@@ -786,6 +613,179 @@ loadWebAssembly('calculatorcpp.wasm')
     document.addEventListener('keyup', execution, false);
     document.addEventListener('click', execution, false);
 });
+// Loads the C++ module and uses it.
+// loadWebAssembly('calculatorcpp.wasm')
+//   .then(instance => {
+//     exports = instance.exports; // The "exports" of the instance
+//
+//     const addition = exports._Z8additiondd; // Exports the function. For C modules.
+//     const subtraction = exports._Z11subtractiondd;
+//     const multiplication = exports._Z14multiplicationdd;
+//     const division = exports._Z8divisiondd;
+//
+//     // console.log('Finished compiling! Ready when you are...'); // It's alive!
+//     // console.log(squarer); // It's really native code!
+//
+//     const additionTrigger = document.getElementById('addition');
+//     const subtractionTrigger = document.getElementById('subtraction');
+//     const multiplicationTrigger = document.getElementById('multiplication');
+//     const divisionTrigger = document.getElementById('division');
+//
+//     const equalTrigger = document.getElementById('equal');
+//
+//     let number1 = document.getElementById('number1');
+//     let number2 = document.getElementById('number2');
+//
+//     let operation = document.getElementById('operation');
+//
+//     let result = document.getElementById('result');
+//
+//     function execution(event) {
+//       let keyPressed = event.keyCode;
+//       let elementClicked = event.path[0].innerText;
+//       if ((keyPressed == 13 || elementClicked == '=') && operation.innerText != 'nil') {
+//         if (operation.innerText == '+') {
+//           result.innerText = addition(number1.innerText, number2.innerText);
+//         }
+//         if (operation.innerText == '-') {
+//           result.innerText = subtraction(number1.innerText, number2.innerText);
+//         }
+//         if (operation.innerText == 'x') {
+//           result.innerText = multiplication(number1.innerText, number2.innerText);
+//         }
+//         if (operation.innerText == '/') {
+//           result.innerText = division(number1.innerText, number2.innerText);
+//         }
+//       }
+//     }
+//     function operations(event) {
+//       let keyPressed = event.keyCode;
+//       let elementClicked = event.path[0].innerText;
+//       // Operations
+//       if (keyPressed == 107 || elementClicked == '+') {
+//         operation.innerText = '+';
+//       }
+//       if (keyPressed == 109 || elementClicked == '-') {
+//         operation.innerText = '-';
+//       }
+//       if (keyPressed == 106 || elementClicked == 'x') {
+//         operation.innerText = 'x';
+//       }
+//       if (keyPressed == 111 || elementClicked == '/') {
+//         operation.innerText = '/';
+//       }
+//     }
+//     function firstOperand(event) {
+//       let keyPressed = event.keyCode;
+//       let elementClicked = event.path[0].innerText;
+//       // First Operand
+//       if (operation.innerText == 'nil') {
+//         if (keyPressed == 48 || keyPressed == 96 || elementClicked == '0') {
+//           number1.innerText = `${number1.innerText}0`;
+//         }
+//         if (keyPressed == 49 || keyPressed == 97 || elementClicked == '1') {
+//           number1.innerText = `${number1.innerText}1`;
+//         }
+//         if (keyPressed == 50 || keyPressed == 98 || elementClicked == '2') {
+//           number1.innerText = `${number1.innerText}2`;
+//         }
+//         if (keyPressed == 51 || keyPressed == 99 || elementClicked == '3') {
+//           number1.innerText = `${number1.innerText}3`;
+//         }
+//         if (keyPressed == 52 || keyPressed == 100 || elementClicked == '4') {
+//           number1.innerText = `${number1.innerText}4`;
+//         }
+//         if (keyPressed == 53 || keyPressed == 101 || elementClicked == '5') {
+//           number1.innerText = `${number1.innerText}5`;
+//         }
+//         if (keyPressed == 54 || keyPressed == 102 || elementClicked == '6') {
+//           number1.innerText = `${number1.innerText}6`;
+//         }
+//         if (keyPressed == 55 || keyPressed == 103 || elementClicked == '7') {
+//           number1.innerText = `${number1.innerText}7`;
+//         }
+//         if (keyPressed == 56 || keyPressed == 104 || elementClicked == '8') {
+//           number1.innerText = `${number1.innerText}8`;
+//         }
+//         if (keyPressed == 57 || keyPressed == 105 || elementClicked == '9') {
+//           number1.innerText = `${number1.innerText}9`;
+//         }
+//         // Misc
+//         if (keyPressed == 110 || keyPressed == 190 || elementClicked == '.') {
+//           number1.innerText = `${number1.innerText}.`;
+//         }
+//       }
+//     }
+//     function secondOperand(event) {
+//       let keyPressed = event.keyCode;
+//       let elementClicked = event.path[0].innerText;
+//       // Second Operand
+//       if (operation.innerText != 'nil') {
+//         if (keyPressed == 48 || keyPressed == 96 || elementClicked == '0') {
+//           number2.innerText = `${number2.innerText}0`;
+//         }
+//         if (keyPressed == 49 || keyPressed == 97 || elementClicked == '1') {
+//           number2.innerText = `${number2.innerText}1`;
+//         }
+//         if (keyPressed == 50 || keyPressed == 98 || elementClicked == '2') {
+//           number2.innerText = `${number2.innerText}2`;
+//         }
+//         if (keyPressed == 51 || keyPressed == 99 || elementClicked == '3') {
+//           number2.innerText = `${number2.innerText}3`;
+//         }
+//         if (keyPressed == 52 || keyPressed == 100 || elementClicked == '4') {
+//           number2.innerText = `${number2.innerText}4`;
+//         }
+//         if (keyPressed == 53 || keyPressed == 101 || elementClicked == '5') {
+//           number2.innerText = `${number2.innerText}5`;
+//         }
+//         if (keyPressed == 54 || keyPressed == 102 || elementClicked == '6') {
+//           number2.innerText = `${number2.innerText}6`;
+//         }
+//         if (keyPressed == 55 || keyPressed == 103 || elementClicked == '7') {
+//           number2.innerText = `${number2.innerText}7`;
+//         }
+//         if (keyPressed == 56 || keyPressed == 104 || elementClicked == '8') {
+//           number2.innerText = `${number2.innerText}8`;
+//         }
+//         if (keyPressed == 57 || keyPressed == 105 || elementClicked == '9') {
+//           number2.innerText = `${number2.innerText}9`;
+//         }
+//         // Misc
+//         if (keyPressed == 110 || keyPressed == 190 || elementClicked == '.') {
+//           number2.innerText = `${number2.innerText}.`;
+//         }
+//       }
+//     }
+//     function erase() {
+//       let keyPressed = event.keyCode;
+//       if (keyPressed == 8 || keyPressed == 46) {
+//         if (operation.innerText == 'nil') {
+//           number1.innerText = '';
+//         } else if (operation.innerText != 'nil' && result.innerText != '') {
+//           result.innerText = '';
+//           number2.innerText = '';
+//         } else if (operation.innerText != 'nil') {
+//           number2.innerText = '';
+//           operation.innerText = 'nil';
+//         }
+//       }
+//     }
+//
+//     document.addEventListener('keyup', firstOperand, false);
+//     document.addEventListener('click', firstOperand, false);
+//
+//     document.addEventListener('keyup', operations, false);
+//     document.addEventListener('click', operations, false);
+//
+//     document.addEventListener('keyup', secondOperand, false);
+//     document.addEventListener('click', secondOperand, false);
+//
+//     document.addEventListener('keyup', erase, false);
+//
+//     document.addEventListener('keyup', execution, false);
+//     document.addEventListener('click', execution, false);
+// });
 ```
 
 HTML and SCSS code can stand still. JS is the one making the work for you.
