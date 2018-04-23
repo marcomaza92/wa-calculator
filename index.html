@@ -1,15 +1,16 @@
 <html>
 <head>
-<title>Web Assembly</title>
-<link rel="stylesheet" href="index.css"/>
-<script src="index.js"></script>
+  <title>Web Assembly</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="index.css"/>
+  <script src="index.js"></script>
 </head>
 <body>
   <main>
     <section class="display">
-      <input class="operands" id="number1" type="text"/>
-      <span class="operation">nil</span>
-      <input class="operands" id="number2" type="text"/>
+      <span class="operands" id="number1"></span>
+      <span class="operation" id="operation">nil</span>
+      <span class="operands" id="number2"></span>
       <span class="separator">=</span>
       <span class="result" id="result"></span>
     </section>
@@ -20,15 +21,15 @@
       <button id="division" type="button">/</button>
     </section>
     <section class="digits">
-      <button id="one" type="button">1</button>
-      <button id="two" type="button">2</button>
-      <button id="three" type="button">3</button>
-      <button id="four" type="button">4</button>
-      <button id="five" type="button">5</button>
-      <button id="six" type="button">6</button>
       <button id="seven" type="button">7</button>
       <button id="eight" type="button">8</button>
       <button id="nine" type="button">9</button>
+      <button id="four" type="button">4</button>
+      <button id="five" type="button">5</button>
+      <button id="six" type="button">6</button>
+      <button id="one" type="button">1</button>
+      <button id="two" type="button">2</button>
+      <button id="three" type="button">3</button>
       <button id="decimal" type="button">.</button>
       <button id="zero" type="button">0</button>
       <button id="equal" type="button">=</button>
