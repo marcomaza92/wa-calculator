@@ -5,17 +5,19 @@
   "main": "index.html",
   "dependencies": {},
   "devDependencies": {
-    "browser-sync": "^2.10.1",
-    "gulp": "^3.9.1",
-    "gulp-watch": "^5.0.0",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-clean-css": "^3.3.1",
-    "gulp-concat": "^2.6.1",
-    "gulp-js-minify": "0.0.3",
-    "gulp-sass": "^2.1.1",
-    "gulp-svgmin": "^1.2.0",
-    "gulp-svgstore": "^5.0.5",
-    "path": "^0.12.7"
+    "browser-sync": "*",
+    "gulp": "*",
+    "gulp-autoprefixer": "*",
+    "gulp-clean-css": "*",
+    "gulp-cli": "^2.0.1",
+    "gulp-concat": "*",
+    "gulp-js-minify": "*",
+    "gulp-sass": "*",
+    "gulp-svgmin": "*",
+    "gulp-svgstore": "*",
+    "gulp-watch": "*",
+    "node-sass": "*",
+    "path": "*"
   },
   "scripts": {
     "test": "test.js"

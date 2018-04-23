@@ -7,25 +7,52 @@
 body {
   margin: 0; }
 
+button {
+  border: 0;
+  padding: 0; }
+
 main {
-  display: -ms-grid;
+  width: 100%;
+  height: 100vh;
   display: grid;
-  -ms-grid-columns: 25% 75%;
+  font-weight: bold;
+  font-size: 1rem;
   grid-template-columns: 25% 75%;
-  -ms-grid-rows: 25% 75%;
   grid-template-rows: 25% 75%; }
   main .display {
     grid-column: 1 / 3;
-    display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 25% 10% 25% 10% 30%;
     grid-template-columns: 25% 10% 25% 10% 30%;
-    -ms-grid-rows: 100%;
     grid-template-rows: 100%;
+    height: 100%;
     text-align: center;
-    color: #000000; }
+    color: black; }
     main .display .operands {
       border: 0;
-      background: #F3D301; }
-  main .operations button {
-    width: 100%; }
+      text-align: center;
+      background: #fee229; }
+    main .display .operation,
+    main .display .separator, main .display .result {
+      line-height: 25vh;
+      color: #FFFFFF; }
+    main .display .operation,
+    main .display .separator {
+      background: #9f5dca; }
+    main .display .result {
+      background: #000000; }
+  main .operations {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 25% 25% 25% 25%; }
+    main .operations button {
+      width: 100%;
+      background: #920002;
+      color: #FFFFFF; }
+  main .digits {
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    grid-template-rows: 25% 25% 25% 25%; }
+    main .digits button {
+      width: 100%;
+      background: #206d06;
+      color: #FFFFFF; }

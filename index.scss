@@ -7,94 +7,162 @@
 
 // Palette
 
-$black: #000000;
-$white: #FFFFFF;
-
-$green: #44E60C;
-$blue: #00AC83;
-$red: #FF1215;
-$purple: #873CB8;
-$yellow: #F3D301;
-
-$colors: '$black', '$white,' '$green', '$blue', '$red', '$purple', '$yellow';
-
-$step: 0;
-$length: length($colors);
-
-$black-shades: null;
-$white-shades: null;
-$green-shades: null;
-$blue-shades: null;
-$red-shades: null;
-$purple-shades: null;
-$yellow-shades: null;
-
-$shades: '$black-shades', '$white-shades', '$green-shades', '$blue-shades', '$red-shades', '$purple-shades', '$yellow-shades';
-
-$black-tints: null;
-$white-tints: null;
-$green-tints: null;
-$blue-tints: null;
-$red-tints: null;
-$purple-tints: null;
-$yellow-tints: null;
-
-$tints: '$black-tints', '$white-tints', '$green-tints', '$blue-tints', '$red-tints', '$purple-tints', '$yellow-tints';
-
-$result-shades: null;
-$result-tints: null;
-
-
-@function createShades($color) {
-  @for $i from 1 through 5 {
-    $step: $step + 5;
-    $result-shades: append($result-shades, darken($color, $step), 'comma');
-  }
-}
-@function createTints($color) {
-  @for $i from 1 through 5 {
-    $step: $step + 5;
-    $result-tints: append($result-tints, lighten($color, $step), 'comma');
-  }
-  @return $result-tints;
-}
-@for $i from 1 through $length {
-  $current-color: nth($colors, $i);
-  $current-shade: nth($shades, $i);
-  $current-tints: nth($tints, $i);
-
-  @for $i from 1 through $length {
-    $current-shade: createShades($current-color);
-    .shades {
-      color: $current-tints;
-    }
-  }
-  @for $i from 1 through $length {
-    $current-tints: createTints($current-color);
-    .tints {
-      color: $current-tints;
-    }
-  }
-}
-
-
+// Map to define all the colors you want
+$colors: (
+  // Chromatic
+  black: #000000,
+  white: #FFFFFF,
+  // Main
+  green: #44E60C,
+  blue: #00AC83,
+  red: #FF1215,
+  purple: #873CB8,
+  yellow: #F3D301
+);
 
 // Shades and Tints
 
+// Trigger
+$step: 0;
+// $gap * $count must be an integer between 0 and 100
+// Both $gap and $count must be integers
+$gap: 5;
+$count: 5;
+// Check if you pay attention to the above conditions
+@if $gap * $count >= 0 or $gap * $count <= 100 {
+  $gap: $gap;
+  $count: $count;
+} @else {
+  @error 'Out of range: $gap * $count must be an integer between 0 and 100';
+}
+// Define empty maps for the shades and tints
+$shades: ();
+$tints: ();
+// Function to create shades
+@function createShades($color-name, $color-value) {
+  $shade: ();
+  @for $i from 1 through $count {
+    $step: $step + $gap;
+    $temp-shade: (
+      #{$color-name}-shade-#{$i}: darken($color-value, $step)
+    );
+    $shade: map-merge($shade, $temp-shade);
+  }
+  @return $shade;
+}
+// Function to create tints
+@function createTints($color-name, $color-value) {
+  $tint: ();
+  @for $i from 1 through $count {
+    $step: $step + $gap;
+    $temp-tint: (
+      #{$color-name}-tint-#{$i}: lighten($color-value, $step)
+    );
+    $tint: map-merge($tint, $temp-tint);
+  }
+  @return $tint;
+}
+// Loop to iterate all the colors and call functions
+@each $color-name, $color-value in $colors {
+  $current-temp-shade: ();
+  $current-temp-tint: ();
+
+  $current-shade: createShades($color-name, $color-value);
+  $current-temp-shade: (
+    #{$color-name}-shades: $current-shade
+  );
+  $shades: map-merge($shades, $current-temp-shade);
+
+  $current-tint: createTints($color-name, $color-value);
+  $current-temp-tint: (
+    #{$color-name}-tints: $current-tint
+  );
+  $tints: map-merge($tints, $current-temp-tint);
+}
+// Debug your results in the console (uncomment below)
+// @debug $shades;
+// @debug $tints;
+// Use this function to get values recursively inside a map
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
 // Fonts
 
+// Usually 1rem = 16px in most of the browsers according to the UA stylesheet. However this can be changed by the user in theirs browsers options.
+$base: 1rem;
+
+$fonts: ();
+// Below arrays are for you to feel with your needs
+$font-names: 'xs', 'sm', 'md', 'base', 'lg', 'xl', 'xxl';
+$font-sizes: 0.5, 0.75, 0.875, 1, 1.5, 2, 3.5;
+// Get the lengths of boths arrays
+$font-names-length: length($font-names);
+$font-sizes-length: length($font-sizes);
+// Check if the length are equal
+@if $font-names-length == $font-sizes-length {
+  // Loop the map with the font-names length
+  @for $i from 1 through $font-names-length {
+    $current-name: nth($font-names, $i);
+    $current-size: nth($font-sizes, $i);
+    $font-temp: (
+      font-#{$current-name}: $base * $current-size
+    );
+    $fonts: map-merge($fonts, $font-temp);
+  }
+} @else {
+  @error 'Lengths from $font-names and $font-sizes are not equal. They must be the same';
+}
+// Debug your results in the console (uncomment below)
+// @debug $fonts;
+
 // Margins and Paddings
+
+$step: 0;
+$gap: 0.5;
+$count: 10;
+
+$margins: ();
+$paddings: ();
+
+@for $i from 1 through $count {
+  $step: $step + $gap;
+  // Loop the margins' map
+  $margin-temp: (
+    margin-#{$i}: #{$step}rem
+  );
+  $margins: map-merge($margins, $margin-temp);
+  // Loop the paddings' map
+  $padding-temp: (
+    padding-#{$i}: #{$step}rem
+  );
+  $paddings: map-merge($paddings, $padding-temp);
+}
+// Debug your results in the console (uncomment below)
+// @debug $margins;
+// @debug $paddings;
 
 // Reset
 
 body {
   margin: 0;
 }
+button {
+  border: 0;
+  padding: 0;
+}
 
 // Custom
 
 main {
+  width: 100%;
+  height: 100vh;
   display: grid;
+  font-weight: bold;
+  font-size: map-get($fonts, font-base);
   grid-template-columns: 25% 75%;
   grid-template-rows: 25% 75%;
   .display {
@@ -102,24 +170,47 @@ main {
       display: grid;
       grid-template-columns: 25% 10% 25% 10% 30%;
       grid-template-rows: 100%;
+      height: 100%;
       text-align: center;
-      color: $black;
+      color: map-deep-get($shades, black-shades, black-shade-1);
     .operands {
       border: 0;
-      background: $yellow;
+      text-align: center;
+      background: map-deep-get($tints, yellow-tints, yellow-tint-2);
     }
-    .operation {
+    %inline-elements {
+      line-height: 25vh;
+      color: map-get($colors, white);
+    }
+    .operation,
+    .separator {
+      @extend %inline-elements;
+      background: map-deep-get($tints, purple-tints, purple-tint-2);
     }
     .result {
+      @extend %inline-elements;
+      background: map-get($colors, black);
     }
   }
   .operations {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 25% 25% 25% 25%;
     button {
       width: 100%;
+      background: map-deep-get($shades, red-shades, red-shade-5);
+      color: map-get($colors, white);
     }
   }
   .digits {
-
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    grid-template-rows: 25% 25% 25% 25%;
+    button {
+      width: 100%;
+      background: map-deep-get($shades, green-shades, green-shade-5);
+      color: map-get($colors, white);
+    }
   }
 }
 

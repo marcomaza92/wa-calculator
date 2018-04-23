@@ -14,7 +14,8 @@ var path = require('path');
 gulp.task('serve', ['sass'], function() {
 
     browserSync.init({
-      proxy: 'http://mmaza.personal.com/projects/wasm-calculator'
+      browser: ['chromium', 'firefox'],
+      server: './'
     });
 
     gulp.watch([
