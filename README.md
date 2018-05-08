@@ -857,7 +857,7 @@ Now, the moment of the true. Test it out!.
 
 Open [localhost/wasm-calculator](https://localhost/wasm-calculator) in your browser. You should see something like this:
 
-![Success](https://localhost/wasm-calculator/success.jpg)
+![Success](./success.png)
 
 If you don't see this, check the following:
 
@@ -884,9 +884,9 @@ If you don't see this, check the following:
 
 ## Thanks
 
-[Daniel Simmons](https://medium.freecodecamp.org/@dsimmons_23530)
-[Alon Zakai (kripken)](https://gist.github.com/kripken)
-[WebAssembly Team](http://webassembly.org/community/feedback/)
+* [Daniel Simmons](https://medium.freecodecamp.org/@dsimmons_23530)
+* [Alon Zakai (kripken)](https://gist.github.com/kripken)
+* [WebAssembly Team](http://webassembly.org/community/feedback/)
 
 ## License
 
