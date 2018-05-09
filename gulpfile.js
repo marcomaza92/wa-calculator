@@ -14,7 +14,6 @@ var path = require('path');
 gulp.task('serve', ['sass'], function() {
 
     browserSync.init({
-      // browser: ['chromium', 'firefox'],
       browser: ['chromium'],
       server: './'
     });
@@ -25,7 +24,6 @@ gulp.task('serve', ['sass'], function() {
     gulp.watch([
       '*.html',
       '*.js']).on('change', browserSync.reload);
-    // gulp.watch('*.html').on('change', browserSync.reload);
 });
 
 // Compile sass into CSS & auto-inject into browsers
