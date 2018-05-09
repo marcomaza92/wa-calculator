@@ -5,7 +5,7 @@ if (!('WebAssembly' in window)) {
 
 let exports;
 
-let addition, subtraction, multiplication, division, square, exponentiation;
+let addition, subtraction, multiplication, division;
 let number, number1Input, number2Input;
 let output;
 

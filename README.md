@@ -18,7 +18,7 @@ Yes, you read that right.
 
 **No, I'm not kidding.**
 
-_[Go back](#index)_
+_[Go to index](#index)_
 
 ## Instructions
 
@@ -30,6 +30,8 @@ _[Go back](#index)_
 6. [Call and use the dynamic library](#6-call-and-use-the-dynamic-library)
 7. [Deploy the application to see results](#7-deploy-the-application-to-see-results)
 
+_[Go to index](#index)_
+
 ### 1. Prerequisites
 
 For this project you will need:
@@ -37,7 +39,7 @@ For this project you will need:
 * Web local server (NodeJS, Apache, etc.).
 * Text editor (I recommend Atom).
 
-_[Go back](#index)_
+_[Go to instructions](#instructions)_
 
 ### 2. Write the C/C++ code
 
@@ -64,7 +66,7 @@ double division(double number1, double number2) {
 
 **Important**: for the sake of simplicity you don't need to declare any variable or include any header or library.
 
-_[Go back](#index)_
+_[Go to instructions](#instructions)_
 
 ### 3. Compile the C/C++ code
 
@@ -96,7 +98,7 @@ Hit the button `compile` and you will see some code appearing in the purple and 
 **The purple part:** This is WAST/WAT code. Is basically WASM human-readable code. Useful to check and debug the compilation.
 **The blue part:** This is Assembler code. If you've ever seen it, you'll get pretty much of it.
 
-_[Go back](#index)_
+_[Go to instructions](#instructions)_
 
 ### 4. Download the dynamic library
 
@@ -108,7 +110,7 @@ Once you have it, move it to your project folder (i.e.: `~/www/wasm-calculator`)
 
 This folder should be inside the _root directory_ (`www` in this case) of your web local server.
 
-_[Go back](#index)_
+_[Go to instructions](#instructions)_
 
 ### 5. Add the dynamic library
 
@@ -431,7 +433,7 @@ if (!('WebAssembly' in window)) {
 
 let exports;
 
-let addition, subtraction, multiplication, division, square, exponentiation;
+let addition, subtraction, multiplication, division;
 let number, number1Input, number2Input;
 let output;
 
@@ -859,7 +861,7 @@ const division = exports.division;
 
 The rest of it is pretty much normal JS
 
-_[Go back](#index)_
+_[Go to instructions](#instructions)_
 
 ### 6. Call and use the dynamic library
 
@@ -871,7 +873,7 @@ You can simply do:
 <script src="index.js"></script>
 ```
 
-_[Go back](#index)_
+_[Go to instructions](#instructions)_
 
 ### 7. Deploy the application to see results
 
@@ -886,7 +888,7 @@ If you don't see this, check the following:
 * Review the steps one by one carefully. This is a hard concept to incorporate.
 * Check your web local server configuration. Maybe your _root directory_ is not the one you think it is.
 
-_[Go back](#index)_
+_[Go to instructions](#instructions)_
 
 ## Further Reading
 
@@ -894,7 +896,7 @@ _[Go back](#index)_
 * [Standalone WebAssembly Example](https://gist.github.com/kripken/59c67556dc03bb6d57052fedef1e61ab)
 * [WebAssembly with only 14 lines of JS](https://medium.freecodecamp.org/get-started-with-webassembly-using-only-14-lines-of-javascript-b37b6aaca1e4)
 
-_[Go back](#index)_
+_[Go to index](#index)_
 
 ## Thanks
 
@@ -902,7 +904,7 @@ _[Go back](#index)_
 * [Alon Zakai (kripken)](https://gist.github.com/kripken)
 * [WebAssembly Team](http://webassembly.org/community/feedback/)
 
-_[Go back](#index)_
+_[Go to index](#index)_
 
 ## License
 
@@ -916,7 +918,7 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-_[Go back](#index)_
+_[Go to index](#index)_
 
 ---
 
