@@ -1,4 +1,4 @@
-# WASM 101
+# WASM Calculator
 
 ## Index
 
