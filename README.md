@@ -1,4 +1,6 @@
-# WASM Calculator
+[Go back to main menu](https://gitlab.com/101-side/intro)
+
+# WebAssembly 101
 
 ## Index
 
